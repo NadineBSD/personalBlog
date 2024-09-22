@@ -26,7 +26,7 @@ function Portfolio() {
 
     useEffect(() => {
         // Fetch design array data
-        axios.get('https://personal-blog-lovat-delta.vercel.app/designArray')
+        axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/designArray')
             .then((response) => {
                 setDesigns(response.data);
             })
@@ -35,7 +35,7 @@ function Portfolio() {
             });
 
         // Fetch web dev array data
-        axios.get('https://personal-blog-lovat-delta.vercel.app/webDevArray')
+        axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/webDevArray')
             .then((response) => {
                 setWebDev(response.data);
             })
@@ -44,7 +44,7 @@ function Portfolio() {
             });
 
         // Fetch mobile dev array data
-        axios.get('https://personal-blog-lovat-delta.vercel.app/mobileDevArray')
+        axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/mobileDevArray')
             .then((response) => {
                 setMobileDev(response.data);
             })
