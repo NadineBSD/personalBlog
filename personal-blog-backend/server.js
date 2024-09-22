@@ -25,17 +25,17 @@ const webDevArrayRouter = require('./routes/webDevArray'); // Adjust the path as
 const mobileDevArrayRouter = require('./routes/mobileDevArray'); // Adjust the path as needed
 
 const app = express();
-//app.use(cors());
-app.use(cors({
-  origin: '*', // Allow all origins, or specify your frontend URL for tighter security
-  credentials: true, // Allow cookies or authorization headers
-}));
+app.use(cors());
+// app.use(cors({
+//   origin: '*', // Allow all origins, or specify your frontend URL for tighter security
+//   credentials: true, // Allow cookies or authorization headers
+// }));
 
-app.use(express.json());
+// app.use(express.json());
 // Prefix your API routes
-app.use('/api/designArray', designArrayRouter);
-app.use('/api/webDevArray', webDevArrayRouter);
-app.use('/api/mobileDevArray', mobileDevArrayRouter);
+app.get('/api/designArray', designArrayRouter);
+app.get('/api/webDevArray', webDevArrayRouter);
+app.get('/api/mobileDevArray', mobileDevArrayRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
