@@ -22,35 +22,89 @@ function Portfolio() {
 
     useEffect(() => {
 
-        fetch('https://personal-blog-q262sz3vo-nadine-bousdjiras-projects.vercel.app/api/designArray')
+        fetch('https://personal-blog-lovat-delta.vercel.app/api/designArray', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                // Add any other necessary headers
+            }
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 return response.json();
             })
-            .then(data => console.log(data))
-            .catch(error => console.error('Error fetching portfolio data:', error));
+            .then(data => {
+                console.log(data);
+                setDesigns(data);
+            })
+            .catch(error => {
+                console.error('Error fetching portfolio data:', error);
+            });
 
-            fetch('/api/webDevArray')
+        fetch('https://personal-blog-lovat-delta.vercel.app/api/webDevArray', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                // Add any other necessary headers
+            }
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 return response.json();
             })
-            .then(data => console.log(data))
-            .catch(error => console.error('Error fetching portfolio data:', error));
+            .then(data => {
+                console.log(data);
+                setWebDev(data);
+            })
+            .catch(error => {
+                console.error('Error fetching portfolio data:', error);
+            });
 
-            fetch('/api/mobileDevArray')
+        fetch('https://personal-blog-lovat-delta.vercel.app/api/mobileDevArray', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                // Add any other necessary headers
+            }
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 return response.json();
             })
-            .then(data => console.log(data))
-            .catch(error => console.error('Error fetching portfolio data:', error));
+            .then(data => {
+                console.log(data);
+                setMobileDev(data);
+            })
+            .catch(error => {
+                console.error('Error fetching portfolio data:', error);
+            });
+
+
+        // fetch('https://personal-blog-lovat-delta.vercel.app/api/webDevArray')
+        //     .then(response => {
+        //         if (!response.ok) {
+        //             throw new Error(`HTTP error! status: ${response.status}`);
+        //         }
+        //         return response.json();
+        //     })
+        //     .then(data => console.log(data))
+        //     .catch(error => console.error('Error fetching portfolio data:', error));
+
+        // fetch('https://personal-blog-lovat-delta.vercel.app/api/mobileDevArray')
+        //     .then(response => {
+        //         if (!response.ok) {
+        //             throw new Error(`HTTP error! status: ${response.status}`);
+        //         }
+        //         return response.json();
+        //     })
+        //     .then(data => console.log(data))
+        //     .catch(error => console.error('Error fetching portfolio data:', error));
 
 
         // const fetchData = async () => {
