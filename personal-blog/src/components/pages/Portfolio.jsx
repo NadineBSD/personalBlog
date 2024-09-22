@@ -25,9 +25,9 @@ function Portfolio() {
         const fetchData = async () => {
             try {
                 const [designRes, webDevRes, mobileDevRes] = await Promise.all([
-                    axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/designArray'),
-                    axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/webDevArray'),
-                    axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/mobileDevArray')
+                    axios.get('/api/designArray'),
+                    axios.get('/api/webDevArray'),
+                    axios.get('/api/mobileDevArray')
                 ]);
                 setDesigns(designRes.data);
                 setWebDev(webDevRes.data);
