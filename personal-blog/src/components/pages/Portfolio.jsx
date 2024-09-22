@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import data from "./data.jsx"
 import './Portfolio.css'
 
 function Card(props) {
@@ -20,44 +19,27 @@ function Portfolio() {
     const [webDev, setWebDev] = useState([]);
     const [mobileDev, setMobileDev] = useState([]);
 
-    const [isDesignArrayEmpty, setIsDesignArrayEmpty] = useState(true);
-    const [isWebArrayEmpty, setIsWebArrayEmpty] = useState(true);
-    const [isMobileArrayEmpty, setIsMobileArrayEmpty] = useState(true);
-
     useEffect(() => {
-        // Fetch design array data
-        axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/designArray')
-            .then((response) => {
-                setDesigns(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching designs:', error);
-            });
+        // Fetch all data concurrently
+        const fetchData = async () => {
+            try {
+                const [designRes, webDevRes, mobileDevRes] = await Promise.all([
+                    axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/designArray'),
+                    axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/webDevArray'),
+                    axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/mobileDevArray')
+                ]);
+                setDesigns(designRes.data);
+                setWebDev(webDevRes.data);
+                setMobileDev(mobileDevRes.data);
+            } catch (error) {
+                console.error('Error fetching portfolio data:', error);
+            } finally {
+                setIsDataLoading(false); // Set loading to false once data is fetched
+            }
+        };
 
-        // Fetch web dev array data
-        axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/webDevArray')
-            .then((response) => {
-                setWebDev(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching webDev:', error);
-            });
-
-        // Fetch mobile dev array data
-        axios.get('https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app/api/mobileDevArray')
-            .then((response) => {
-                setMobileDev(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching mobileDev:', error);
-            });
+        fetchData();
     }, []);
-
-    useEffect(() => {
-        setIsDesignArrayEmpty(designs.length === 0);
-        setIsWebArrayEmpty(webDev.length === 0);
-        setIsMobileArrayEmpty(mobileDev.length === 0);
-    });
 
     const designCards = designs.map(item => {
         return (
@@ -113,7 +95,7 @@ function Portfolio() {
 
             <div className="align-left">
                 <h1 className="title">Design</h1>
-                {isDesignArrayEmpty ? (
+                {designs.length <= 0 ? (
                     <p className='text'>Cricket sounds ... 🦗</p>
                 ) : (
                     <div className="cards-list-wrapper">
@@ -125,7 +107,7 @@ function Portfolio() {
 
             <div className="align-left">
                 <h1 className="title">Web Dev</h1>
-                {isWebArrayEmpty ? (
+                {webDev.length <= 0 ? (
                     <p className='text'>Cricket sounds ... 🦗</p>
                 ) : (
                     <div className="cards-list-wrapper">
@@ -137,7 +119,7 @@ function Portfolio() {
 
             <div className="align-left">
                 <h1 className="title">Mobile Dev</h1>
-                {isMobileArrayEmpty ? (
+                {mobileDev.length <= 0 ? (
                     <p className='text'>Cricket sounds ... 🦗</p>
                 ) : (
                     <div className="cards-list-wrapper">
