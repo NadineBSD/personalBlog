@@ -1,19 +1,36 @@
+// const express = require('express');
+// const cors = require('cors');
+// const db = require('./db'); // Import centralized DB connection
+// const designArray = require('./routes/designArray');
+// const webDevArray = require('./routes/webDevArray');
+// const mobileDevArray = require('./routes/mobileDevArray');
+
+// const app = express();
+// app.use(cors());
+
+// // Routes
+// app.get('/designArray', designArray);
+// app.get('/webDevArray', webDevArray);
+// app.get('/mobileDevArray', mobileDevArray);
+
+// // Server listen
+// app.listen(8081, () => {
+//     console.log("Server is running on port 8081");
+// });
+
 const express = require('express');
-const cors = require('cors');
-const db = require('./db'); // Import centralized DB connection
-const designArray = require('./routes/designArray');
-const webDevArray = require('./routes/webDevArray');
-const mobileDevArray = require('./routes/mobileDevArray');
-
 const app = express();
-app.use(cors());
+const designArrayRouter = require('./routes/designArray'); // Adjust the path as needed
+const webDevArrayRouter = require('./routes/webDevArray'); // Adjust the path as needed
+const mobileDevArrayRouter = require('./routes/mobileDevArray'); // Adjust the path as needed
 
-// Routes
-app.get('/designArray', designArray);
-app.get('/webDevArray', webDevArray);
-app.get('/mobileDevArray', mobileDevArray);
+app.use(express.json());
+// Prefix your API routes
+app.use('/designArray', designArrayRouter);
+app.use('/webDevArray', webDevArrayRouter);
+app.use('/mobileDevArray', mobileDevArrayRouter);
 
-// Server listen
-app.listen(8081, () => {
-    console.log("Server is running on port 8081");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
