@@ -18,6 +18,7 @@ function Portfolio() {
     const [designs, setDesigns] = useState([]);
     const [webDev, setWebDev] = useState([]);
     const [mobileDev, setMobileDev] = useState([]);
+    const [isDataLoading, setIsDataLoading] = useState(true);
 
     useEffect(() => {
         // Fetch all data concurrently
