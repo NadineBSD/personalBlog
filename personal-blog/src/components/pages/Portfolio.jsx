@@ -20,26 +20,55 @@ function Portfolio() {
     const [webDev, setWebDev] = useState([]);
     const [mobileDev, setMobileDev] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:8081/designArray')
-        .then(res => res.json())
-        .then(data => setDesigns(data))
-        .catch(err => console.log(err));
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:8081/designArray')
+    //     .then(res => res.json())
+    //     .then(data => setDesigns(data))
+    //     .catch(err => console.log(err));
+    // }, [])
 
-    useEffect(() => {
-        fetch('http://localhost:8081/webDevArray')
-            .then(res => res.json())
-            .then(data => setWebDev(data))
-            .catch(err => console.log(err));
-    }, []);
+    // useEffect(() => {
+    //     fetch('http://localhost:8081/webDevArray')
+    //         .then(res => res.json())
+    //         .then(data => setWebDev(data))
+    //         .catch(err => console.log(err));
+    // }, []);
+    
+    // useEffect(() => {
+    //     fetch('http://localhost:8081/mobileDevArray')
+    //         .then(res => res.json())
+    //         .then(data => setMobileDev(data))
+    //         .catch(err => console.log(err));
+    // }, []);
     
     useEffect(() => {
-        fetch('http://localhost:8081/mobileDevArray')
-            .then(res => res.json())
-            .then(data => setMobileDev(data))
-            .catch(err => console.log(err));
-    }, []);
+        // Fetch design array data
+        axios.get('https://personal-blog-lovat-delta.vercel.app/designArray')
+          .then((response) => {
+            setDesigns(response.data);
+          })
+          .catch((error) => {
+            console.error('Error fetching designs:', error);
+          });
+    
+        // Fetch web dev array data
+        axios.get('https://personal-blog-lovat-delta.vercel.app/webDevArray')
+          .then((response) => {
+            setWebDev(response.data);
+          })
+          .catch((error) => {
+            console.error('Error fetching webDev:', error);
+          });
+    
+        // Fetch mobile dev array data
+        axios.get('https://personal-blog-lovat-delta.vercel.app/mobileDevArray')
+          .then((response) => {
+            setMobileDev(response.data);
+          })
+          .catch((error) => {
+            console.error('Error fetching mobileDev:', error);
+          });
+      }, []);
 
     // useEffect(() => {
     //     // Fetch the array from the backend
