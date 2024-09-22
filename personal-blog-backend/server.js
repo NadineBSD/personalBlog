@@ -20,6 +20,7 @@
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const designArrayRouter = require('./routes/designArray'); // Adjust the path as needed
 const webDevArrayRouter = require('./routes/webDevArray'); // Adjust the path as needed
 const mobileDevArrayRouter = require('./routes/mobileDevArray'); // Adjust the path as needed
