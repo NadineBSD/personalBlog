@@ -19,13 +19,19 @@
 // });
 
 const express = require('express');
-const app = express();
 const cors = require('cors');
 const designArrayRouter = require('./routes/designArray'); // Adjust the path as needed
 const webDevArrayRouter = require('./routes/webDevArray'); // Adjust the path as needed
 const mobileDevArrayRouter = require('./routes/mobileDevArray'); // Adjust the path as needed
 
+const app = express();
 app.use(cors());
+
+const corsOptions = {
+    origin: ['http://localhost:5173', 'https://your-netlify-deployed-site.com'],
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+};
+app.use(cors(corsOptions));
 
 app.use(express.json());
 // Prefix your API routes
@@ -33,7 +39,7 @@ app.use('/api/designArray', designArrayRouter);
 app.use('/api/webDevArray', webDevArrayRouter);
 app.use('/api/mobileDevArray', mobileDevArrayRouter);
 
-const PORT = process.env.PORT || 3000 || 5173;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
