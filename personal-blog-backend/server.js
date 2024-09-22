@@ -24,6 +24,8 @@ const designArrayRouter = require('./routes/designArray'); // Adjust the path as
 const webDevArrayRouter = require('./routes/webDevArray'); // Adjust the path as needed
 const mobileDevArrayRouter = require('./routes/mobileDevArray'); // Adjust the path as needed
 
+app.use(cors());
+
 app.use(express.json());
 // Prefix your API routes
 app.use('/api/designArray', designArrayRouter);
