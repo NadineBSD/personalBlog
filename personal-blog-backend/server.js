@@ -33,9 +33,9 @@ app.use(cors());
 
 // app.use(express.json());
 // Prefix your API routes
-app.get('/api/designArray', designArrayRouter);
-app.get('/api/webDevArray', webDevArrayRouter);
-app.get('/api/mobileDevArray', mobileDevArrayRouter);
+app.use('/api/designArray', designArrayRouter);
+app.use('/api/webDevArray', webDevArrayRouter);
+app.use('/api/mobileDevArray', mobileDevArrayRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
