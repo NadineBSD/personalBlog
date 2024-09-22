@@ -26,9 +26,9 @@ const mobileDevArrayRouter = require('./routes/mobileDevArray'); // Adjust the p
 
 app.use(express.json());
 // Prefix your API routes
-app.use('/designArray', designArrayRouter);
-app.use('/webDevArray', webDevArrayRouter);
-app.use('/mobileDevArray', mobileDevArrayRouter);
+app.use('/api/designArray', designArrayRouter);
+app.use('/api/webDevArray', webDevArrayRouter);
+app.use('/api/mobileDevArray', mobileDevArrayRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

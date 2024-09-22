@@ -13,7 +13,7 @@ const router = express.Router();
 const pool = require('../db'); // Import centralized DB connection
 
 // Route to get designArray data
-router.get('/mobileDevArray', (req, res) => {
+router.get('/', (req, res) => {
     pool.query('SELECT * FROM `mobileDevArray`', (err, results) => {
         if (err) {
             return res.status(500).json({ error: err.message });
