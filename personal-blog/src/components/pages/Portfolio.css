@@ -1,0 +1,247 @@
+.portfolio-container {
+    background-color: var(--color10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 50px;
+    /* Remove fixed height */ 
+    height: 1900px;
+}
+
+.portfolio-container .align-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 1035px;
+    margin-left: 80px;
+    margin-top: 89px;
+    margin-bottom: 70px;
+    z-index: 10;
+    align-self: flex-start;
+ }
+
+.portfolio-container .title {
+    font-family: "Consolas", sans-serif;
+    color: var(--color8);
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.cards-list {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    gap: 20px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-bottom: 10px;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow around the cards list */
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--color2);
+    z-index: 20;
+    scroll-behavior: smooth; /* Optional: Smooth scrolling effect */
+}
+
+.cards-list-wrapper {
+    position: relative; /* Container for the shadow effects */
+    width: 100%;
+    overflow-x: auto; /* Ensure the scrollbar stays visible */
+    border-radius: 10px;
+    border: 1px solid var(--color8);
+}
+
+.cards-list-wrapper::before,
+.cards-list-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 70px; /* Adjust width as needed */
+    z-index: 100;
+    pointer-events: none; /* Allow interactions with cards */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.347), transparent);
+}
+
+.cards-list-wrapper::after {
+    right: 0;
+    left: auto;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.347), transparent);
+}
+
+.cards-list::-webkit-scrollbar {
+    height: 10px; /* Custom scrollbar height */
+}
+
+.cards-list::-webkit-scrollbar-thumb {
+    background-color: var(--color8); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded edges for the scrollbar thumb */
+}
+
+.card-container {
+    border: 1px solid var(--color8);
+    background-color: var(--color3);
+    width: 400px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    z-index: 5;
+}
+
+.card {
+    width: 400px; /* Ensure the card takes the full width of the card container */
+    font-size: 12px;
+    flex: 0 0 auto;         
+    display: flex;          
+    flex-direction: column; 
+    align-self: center;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Ensure text is centered */
+}
+
+.card--image {
+    width: 190px;
+    border-radius: 9px;
+    margin-bottom: 9px;
+}
+
+.card--title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: "Boiling Demo", sans-serif;
+    color:white;
+    font-size: medium;
+}
+
+.Star10 {
+    fill: white;
+    width: 170px;
+    position: absolute;
+    z-index: 15;
+    bottom: -70%; 
+    left: -6%;
+}
+
+.Heart6 {
+    fill: var(--color8);
+    width: 370px;
+    position: absolute;
+    z-index: 15;
+    top: 68%; 
+    right: 0%;
+}
+
+.Heart7 {
+    fill: var(--color5);
+    width: 33px;
+    position: absolute;
+    z-index: 15;
+    top: 12%; 
+    left: 19%;
+}
+
+.Heart8 {
+    fill: var(--color5);
+    width: 290px;
+    position: absolute;
+    z-index: 15;
+    bottom: -144%; 
+    right: 30%;
+}
+
+.Star11 {
+    fill: var(--color7);
+    width: 100px;
+    position: absolute;
+    z-index: 15;
+    bottom: -220%; 
+    right: 9%;
+}
+
+/*****************************************************************************/
+
+/* Responsive styles */
+
+@media screen and (max-width: 960px) {
+
+    .portfolio-container .align-left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        width: 430px;
+        margin-left: 80px;
+        margin-top: 89px;
+        margin-bottom: 70px;
+        z-index: 10;
+        align-self: flex-start;
+     }
+    
+    .card-container {
+        border: 1px solid var(--color8);
+        background-color: var(--color3);
+        width: 389px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+        z-index: 5;
+    }
+
+    .Star10 {
+        fill: white;
+        width: 130px;
+        position: absolute;
+        z-index: 15;
+        bottom: -70%; 
+        left: -6%;
+    }
+    
+    .Heart6 {
+        fill: var(--color8);
+        width: 370px;
+        position: absolute;
+        z-index: 15;
+        top: 65%; 
+        right: 0%;
+    }
+    
+    .Heart7 {
+        fill: var(--color5);
+        width: 33px;
+        position: absolute;
+        z-index: 15;
+        top: 12%; 
+        left: 39%;
+    }
+    
+    .Heart8 {
+        fill: var(--color5);
+        width: 280px;
+        position: absolute;
+        z-index: 15;
+        bottom: -130%; 
+        right: 0%;
+    }
+    
+    .Star11 {
+        fill: var(--color7);
+        width: 100px;
+        position: absolute;
+        z-index: 15;
+        bottom: -233%; 
+        left: 9%;
+    }
+
+}

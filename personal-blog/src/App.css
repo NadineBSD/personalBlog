@@ -1,0 +1,47 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+:root {
+  --color1: #392C3A;
+  --color2: #67465D;
+  --color3: #987D9A;
+  --color4: #B09787;
+  --color5: #BB9AB1;
+  --color6: #BEBB96;
+  --color7: #EECEB9;
+  --color8: #FEFBD8;
+  --color9: #FFE4B5;
+  --color10: #4B3444;
+  --color11: #43303E;
+  --color12: #A48A7B;
+  --color13: #DEC6D7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color10);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+main {
+  flex: 1; /* Allow main content to take available space */
+}

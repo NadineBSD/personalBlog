@@ -1,0 +1,383 @@
+  
+  .home {
+    background-color: var(--color10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+  }
+
+  /************************** Doodles of the Home page **************************/
+
+  .doodles {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+  }
+
+  .Star1 {
+    fill: var(--color8);
+    width: 55px;
+    position: absolute;
+    z-index: 15;
+    top: 17%; 
+    left: 51%;
+  }  
+
+  .Star2 {
+    fill: var(--color8);
+    width: 30px;
+    position: absolute;
+    z-index: 15;
+    top: 10%; 
+    left: 2.5%;
+  }
+
+  .Heart2 {
+    fill: var(--color5);
+    width: 230px;
+    position: absolute;
+    z-index: 15;
+    top: 90%; 
+    left: -5%;
+  }
+
+  .Heart4 {
+    fill: white;
+    width: 400px;
+    position: absolute;
+    z-index: 15;
+    top: 18%; 
+    right: 0%;
+  }
+
+  .Star3 {
+    fill: white;
+    width: 100px;
+    position: absolute;
+    z-index: 15;
+    top: -20%; 
+    right: 20%;
+  }
+
+  .Star4 {
+    fill: var(--color8);
+    width: 30px;
+    position: absolute;
+    z-index: 15;
+    top: -6%; 
+    left: 21%;
+  }
+
+  .Heart1 {
+    fill: var(--color7);
+    width: 200px;
+    position: absolute;
+    z-index: 15;
+    bottom: -30%; 
+    right: 11%;
+  }
+
+  .Heart3 {
+    fill: white;
+    width: 350px;
+    position: absolute;
+    z-index: 15;
+    bottom: -50%; 
+    left: -10%;
+  }
+
+  .Star5 {
+    fill: var(--color8);
+    width: 100px;
+    position: absolute;
+    z-index: 15;
+    bottom: -10%; 
+    right: 6%;
+  }
+
+  .Star6 {
+    fill: var(--color3);
+    width: 50px;
+    position: absolute;
+    z-index: 15;
+    top: -7%; 
+    left: 5%;
+  }
+
+  .Arrow {
+    fill: var(--color5);
+    width: 160px;
+    position: absolute;
+    z-index: 15;
+    top: 10%; 
+    right: 25%;
+  }
+
+  .minouch-container {
+    z-index: 100;
+    /*280px*/
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    right: 6.5%;
+    top: 10%;
+    cursor: pointer;
+    /* top: 0;
+    left: 0;
+    opacity: 0; */
+    /* margin-left: auto; */
+    /* margin-right: 100px;
+    margin-top: 60px; */
+    /* transition:left 1s linear; */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .minouch-pic {
+    /*180px*/
+    z-index: 100;
+    width: 140px;
+    position: relative;
+    border-radius: 27px;
+    
+  }
+
+  .minouch-container:hover {
+    transform: rotate(10deg);
+  } 
+
+   /* .minouch-pic:hover {
+    transform: rotate(10deg);
+  }  */
+
+  .minouch-text {
+    font-family: 'Boiling demo', sans-serif;
+    color: white;
+    font-size: 1.5rem;
+    z-index: 15;
+  }
+
+  /******************************************************************************/
+
+  /************************************ Hero ************************************/
+
+  .img-box {
+    align-self: flex-start;
+    margin-top: 90px;
+  }
+
+  .hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+  }
+
+  .hero-section {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 20;
+  }
+
+  .hero-picture {
+    display: flex;
+    align-items: flex-end;
+    margin-right: 95px;
+    border-radius: 10px;
+    z-index: 20;
+    transition: transform 0.3s ease; /* Smooth transition for tilt effect */
+    transform-style: preserve-3d; /* Preserve 3D transformation */
+  }
+
+  .nadine-picture {
+    width: 330px;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-section .hero-picture{
+    position:relative;
+    border-radius:10px;
+    transition:.5s;
+    overflow:hidden;
+  }
+
+  .hero-section .hero-picture:hover{
+    border-radius: 12px;
+    transform:translatey(-10px);
+    box-shadow:0 20px 20px rgba(0,0,0,.2);
+    cursor: pointer;
+  } 
+
+  .hero-section .img-box .img_box{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+  }
+  .hero-section .img-box:hover .img_box{opacity:0.5}
+  .hero-section .img-box .img_box img{width:100%}
+
+  /******************************************************************************/
+
+  /*********************************** Skills ***********************************/
+
+  .tab {
+    margin: 0;
+    position: absolute;
+    z-index: 10;
+    display: block;
+    top: 27%;
+  }
+
+  .skills-container {
+    margin-top: 150px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+  }
+
+  .skills-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 equal rows */
+    gap: 40px; /* Space between grid items (optional) */
+    margin-top: 75px;
+  }
+
+  .skills-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+    width: 70px;
+    z-index: 30;
+  }
+
+  .skills-logo > img {
+    width: 60px;
+    z-index: 30;
+    padding: 0;
+  }
+
+  /*****************************************************************************/
+
+  /*********************************** Facts ***********************************/
+
+  .container {
+    width: 100%;
+    height: auto;
+  }
+
+  .funFacts-container {
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .funFacts-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+    z-index: 25;
+  }
+
+  .fact-item {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 200px;
+  }
+
+  .fact-item h3 {
+    width: 800px;
+  }
+
+  .fact-left {
+    align-self: flex-start; /* Aligns the fact item to the left */
+  }
+  
+  .fact-right {
+    align-self: flex-end; /* Aligns the fact item to the right */
+  }
+
+  .heart-fact {
+    width: 30px;
+    margin-right: 15px;
+  }
+
+  .empty-container {
+    margin-top: 100px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /*****************************************************************************/
+
+  /********************************** Shared ***********************************/ 
+
+  .align-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 500px;
+    margin-left: 80px;
+    margin-top: 89px;
+    z-index: 10;
+    align-self: flex-start;
+  }
+
+  .title {
+    font-family: "Consolas", sans-serif;
+    color: var(--color8);
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+  }
+
+  .text {
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: left;
+  }

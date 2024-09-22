@@ -1,0 +1,140 @@
+  .navbar {
+    background-color: var(--color1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+    /* Adjust padding for spacing */
+    border-bottom: 1px solid var(--color7);
+    width: 100%;
+    height: 100px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Boiling demo', sans-serif;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    text-shadow:
+      -0.5px -0.5px 0 var(--color12),
+      /* Top left */
+      0.5px -0.5px 0 var(--color12),
+      /* Top right */
+      -0.5px 0.5px 0 var(--color12),
+      /* Bottom left */
+      0.5px 0.5px 0 var(--color12);
+    /* Bottom right */
+  }
+
+  .highlight {
+    color: var(--color9);
+    /* Color for "n" of "nani" and "b" of "bsd" */
+  }
+
+  .cat-logo {
+    width: 60px;
+    margin-right: 20px;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: right 0.3s ease;
+  }
+
+  .nav-item {
+    margin-left: 20px;
+  }
+
+  .nav-links {
+    display: inline-block;
+    /* Ensure the links behave like buttons */
+    color: var(--color8);
+    /* Button color */
+    border: none;
+    /* Button border color */
+    padding: 10px 15px;
+    /* Adjust padding as needed */
+    text-decoration: none;
+    /* Remove underline */
+    transition: all 0.5s;
+    /* Smooth transition for hover effect */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    border-radius: 35px;
+    cursor: pointer;
+  }
+
+  .nav-links:hover {
+    background-color: var(--color1);
+    /* Change background color on hover */
+    color: var(--color1);
+    /* Change text color on hover */
+    border-color: var(--color8);
+    /* Change border color on hover */
+    box-shadow: inset 0 0 0 2em var(--color8);
+    /* Inner shadow effect on hover */
+    border-radius: 35px;
+  }
+
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--color8);
+  }
+
+  /* Responsive styles */
+  @media screen and (max-width: 960px) {
+    .navbar-container {
+      justify-content: space-between;
+    }
+
+    .nav-menu {
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 180px;
+      height: 100%;
+      background-color: var(--color1);
+      padding-top: 100px;
+      transform: translateX(100%);
+      /* Move off-screen */
+      border-left: 1px solid var(--color7);
+      z-index: 5;
+    }
+
+    .nav-menu.active {
+      transform: translateX(0);
+      /* Slide in */
+      right: 0;
+    }
+
+    .nav-item {
+      margin: 10px 0;
+    }
+
+    .menu-icon {
+      display: block;
+      z-index: 15;
+    }
+  }
