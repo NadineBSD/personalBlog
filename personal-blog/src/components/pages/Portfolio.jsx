@@ -21,25 +21,56 @@ function Portfolio() {
     const [isDataLoading, setIsDataLoading] = useState(true);
 
     useEffect(() => {
-        // Fetch all data concurrently
-        const fetchData = async () => {
-            try {
-                const [designRes, webDevRes, mobileDevRes] = await Promise.all([
-                    axios.get('/api/designArray'),
-                    axios.get('/api/webDevArray'),
-                    axios.get('/api/mobileDevArray')
-                ]);
-                setDesigns(designRes.data);
-                setWebDev(webDevRes.data);
-                setMobileDev(mobileDevRes.data);
-            } catch (error) {
-                console.error('Error fetching portfolio data:', error);
-            } finally {
-                setIsDataLoading(false); // Set loading to false once data is fetched
-            }
-        };
 
-        fetchData();
+        fetch('/api/designArray')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => console.log(data))
+            .catch(error => console.error('Error fetching portfolio data:', error));
+
+            fetch('/api/webDevArray')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => console.log(data))
+            .catch(error => console.error('Error fetching portfolio data:', error));
+
+            fetch('/api/mobileDevArray')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => console.log(data))
+            .catch(error => console.error('Error fetching portfolio data:', error));
+
+
+        // const fetchData = async () => {
+        //     try {
+        //         const [designRes, webDevRes, mobileDevRes] = await Promise.all([
+        //             axios.get('/api/designArray'),
+        //             axios.get('/api/webDevArray'),
+        //             axios.get('/api/mobileDevArray')
+        //         ]);
+        //         setDesigns(designRes.data);
+        //         setWebDev(webDevRes.data);
+        //         setMobileDev(mobileDevRes.data);
+        //     } catch (error) {
+        //         console.error('Error fetching portfolio data:', error);
+        //     } finally {
+        //         setIsDataLoading(false); // Set loading to false once data is fetched
+        //     }
+        // };
+
+        // fetchData();
     }, []);
 
     const designCards = designs.map(item => {

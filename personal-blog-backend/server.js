@@ -25,13 +25,11 @@ const webDevArrayRouter = require('./routes/webDevArray'); // Adjust the path as
 const mobileDevArrayRouter = require('./routes/mobileDevArray'); // Adjust the path as needed
 
 const app = express();
-app.use(cors());
-
-const corsOptions = {
-    origin: ['http://localhost:5173', 'https://your-netlify-deployed-site.com'],
-    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
-};
-app.use(cors(corsOptions));
+//app.use(cors());
+app.use(cors({
+  origin: '*', // Allow all origins, or specify your frontend URL for tighter security
+  credentials: true, // Allow cookies or authorization headers
+}));
 
 app.use(express.json());
 // Prefix your API routes
