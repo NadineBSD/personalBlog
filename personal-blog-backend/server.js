@@ -25,13 +25,21 @@ const webDevArrayRouter = require('./routes/webDevArray'); // Adjust the path as
 const mobileDevArrayRouter = require('./routes/mobileDevArray'); // Adjust the path as needed
 
 const app = express();
-app.use(cors());
-// app.use(cors({
-//   origin: '*', // Allow all origins, or specify your frontend URL for tighter security
-//   credentials: true, // Allow cookies or authorization headers
-// }));
+app.use(cors({
+    origin: '*', // You can change '*' to your frontend URL for tighter security, e.g., 'http://localhost:5173'
+    credentials: true, // Allow cookies or authorization headers
+  }));
 
-// app.use(express.json());
+ app.use(express.json());
+
+// Log incoming requests
+app.use((req, res, next) => {
+    console.log(`Incoming request: ${req.method} ${req.originalUrl}`);
+    console.log('Headers:', req.headers);
+    console.log('Body:', req.body);
+    next(); // Continue to the actual route handler
+});
+
 // Prefix your API routes
 app.use('/api/designArray', designArrayRouter);
 app.use('/api/webDevArray', webDevArrayRouter);

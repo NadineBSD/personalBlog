@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       // Proxying API requests
       '/api': {
-        target: 'https://personal-blog-pgz3zexcs-nadine-bousdjiras-projects.vercel.app', // Your deployed backend
+        target: 'https://personal-blog-q262sz3vo-nadine-bousdjiras-projects.vercel.app', // Your deployed backend
         changeOrigin: true, // Change the origin of the host header to the target URL
         secure: false, // If the target is using https
         rewrite: (path) => path.replace(/^\/api/, ''), // Rewrite /api prefix if needed

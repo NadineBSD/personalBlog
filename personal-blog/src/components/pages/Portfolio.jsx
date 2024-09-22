@@ -22,7 +22,7 @@ function Portfolio() {
 
     useEffect(() => {
 
-        fetch('/api/designArray')
+        fetch('https://personal-blog-q262sz3vo-nadine-bousdjiras-projects.vercel.app/api/designArray')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
